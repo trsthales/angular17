@@ -29,7 +29,10 @@ logs/
 *.jar          # Ignora pacotes JAR
 *.war          # Ignora pacotes WAR
 
-backend/**/target/
+backend/application/target/
+backend/boot/target/
+backend/domain/target/
+backend/infrastructure/target/
 frontend/**/dist/
 frontend/**/node_modules/
 frontend/**/build/
