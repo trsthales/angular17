@@ -2,6 +2,7 @@ package com.example.ecommerce.domain.product;
 
 import com.example.ecommerce.domain.value.Money;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -37,7 +38,7 @@ public class Product {
     }
 
     public void reprice(Money newPrice) {
-        if (newPrice == null) throw new IllegalArgumentException("newPrice required");
+        if (newPrice == null && newPrice.compareTo(new Money(BigDecimal.ZERO)) < 0) throw new IllegalArgumentException("newPrice required");
         this.price = newPrice;
     }
 

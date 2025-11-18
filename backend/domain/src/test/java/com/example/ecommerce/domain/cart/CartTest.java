@@ -33,8 +33,7 @@ class CartTest {
         var p = new Product("P", new Money(new BigDecimal("5.00")));
         var cart = new Cart();
 
-        assertThatThrownBy(() -> cart.addItem(p, 0))
-                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> cart.addItem(p, 0)).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> cart.addItem(p, -1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
@@ -53,4 +52,11 @@ class CartTest {
                 .containsExactly(p1.getId());
         assertThat(cart.getTotal()).isEqualTo(new Money(new BigDecimal("10.00")));
     }
+
+    @Test
+    void getTotal_shouldReturnZeroForEmptyCart() {
+        var cart = new Cart();
+        assertThat(cart.getTotal()).isEqualTo(new Money(BigDecimal.ZERO));
+    }
+
 }
