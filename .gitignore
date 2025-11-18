@@ -1,0 +1,57 @@
+# Arquivos e diretórios gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+*.log
+logs/
+*.tmp
+
+# Configurações do IntelliJ IDEA (JetBrains)
+# Ignorar a pasta .idea/ é uma prática comum para evitar o compartilhamento de configurações locais específicas do usuário.
+# Se toda a equipe usa IntelliJ e deseja compartilhar configurações, pode-se ajustar isso.
+.idea/
+# Arquivos específicos dentro de .idea que geralmente são ignorados de qualquer forma
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Artefatos de Build Java (Maven/Gradle)
+*target/        # Pasta de compilação padrão do Maven
+*build/         # Pasta de compilação padrão do Gradle
+*.class        # Ignora arquivos de classe compilados
+*.jar          # Ignora pacotes JAR
+*.war          # Ignora pacotes WAR
+
+# Dependências (devem ser gerenciadas pelo Maven/Gradle, não pelo Git)
+# Ignorar dependências na raiz do projeto (se aplicável, embora incomum para projetos Java padrão)
+lib/
+libs/
+
+# Artefatos de Build e Dependências do Angular/Node
+*node_modules/  # Dependências do Node.js, gerenciadas via npm/yarn
+*dist/          # Pasta de saída da compilação do Angular (ng build)
+*.tsbuildinfo
+.angular/cache # Cache do Angular CLI
+
+# Variáveis de ambiente e segredos
+.env           # Arquivos de variáveis de ambiente
+# Arquivos de propriedades/YAML que podem conter credenciais sensíveis (use variáveis de ambiente em produção)
+application.properties.orig
+application.yml.orig
+src/main/resources/*.properties.orig
+src/main/resources/*.yml.orig
+
+# Arquivos de teste e cobertura
+/coverage
+e2e/            # Em projetos Angular mais antigos, essa pasta era ignorada.
+
+# Arquivos temporários e de log
+temp
+tmp
