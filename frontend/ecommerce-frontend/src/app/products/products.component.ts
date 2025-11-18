@@ -3,12 +3,34 @@ import { CommonModule } from '@angular/common';
 import { CheckoutComponent } from '../checkout/checkout.component';
 import { ProductsService, Product } from './products.service';
 import { CartStore } from '../core/cart.store';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-products',
   standalone: true,
   imports: [CommonModule, CheckoutComponent],
   templateUrl: './products.component.html',
+  animations: [
+    // container animation: stagger child items
+    trigger('listAnim', [
+      transition(':enter', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(10px)' }),
+          stagger(80, [animate('320ms cubic-bezier(.2,.8,.2,1)', style({ opacity: 1, transform: 'translateY(0)' }))])
+        ], { optional: true })
+      ])
+    ]),
+    // per-item animation (for dynamic additions)
+    trigger('itemAnim', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(8px)' }),
+        animate('300ms 0ms cubic-bezier(.2,.8,.2,1)', style({ opacity: 1, transform: 'translateY(0)' }))
+      ]),
+      transition(':leave', [
+        animate('220ms ease-in', style({ opacity: 0, transform: 'translateY(-6px)' }))
+      ])
+    ])
+  ]
 })
 export class ProductsComponent implements OnInit {
   private readonly service = inject(ProductsService);
@@ -16,6 +38,11 @@ export class ProductsComponent implements OnInit {
 
   readonly products = signal<Product[]>([]);
   readonly error = signal<string | null>(null);
+
+  // Retorna o userId atual (usado em templates para chamadas da store)
+  userId() {
+    return localStorage.getItem('userId') || '00000000-0000-0000-0000-000000000001';
+  }
 
   ngOnInit() {
     this.service.list().subscribe({
@@ -29,7 +56,7 @@ export class ProductsComponent implements OnInit {
 
   addToCart(p: Product) {
     // chama backend via CartStore, o interceptor injeta X-User-Id automaticamente
-    this.cart.add({ productId: p.id, quantity: 1 }, localStorage.getItem('userId') || '00000000-0000-0000-0000-000000000001');
+    this.cart.add({ productId: p.id, quantity: 1 }, this.userId());
   }
 }
 

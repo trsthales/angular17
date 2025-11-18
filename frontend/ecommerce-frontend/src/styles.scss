@@ -1,1 +1,109 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+	--bg: #fafafa;
+	--card: #ffffff;
+	--primary: #0b5fff;
+	--accent: #6c63ff;
+	--text: #222428;
+	--muted: #6b7280;
+	--danger: #d9534f;
+	--radius: 8px;
+	--header-height: 64px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial;
+	background: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing:antialiased;
+}
+
+.app-header{
+	height: var(--header-height);
+	padding: 0 1rem;
+	border-bottom: 1px solid #eee;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:1rem;
+	background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.9));
+}
+.header-left{display:flex;align-items:center;gap:.75rem}
+.header-left h1{margin:0;font-size:1.125rem}
+.nav a{color:var(--muted);text-decoration:none;margin-right:.6rem}
+.nav a:hover{color:var(--text)}
+
+.header-right{display:flex;align-items:center;gap:.6rem}
+
+.btn{
+	background:var(--primary);
+	color:white;
+	border:none;
+	padding:.4rem .7rem;
+	border-radius:6px;
+	cursor:pointer;
+	font-size:.9rem;
+}
+.btn.secondary{background:transparent;color:var(--primary);border:1px solid #e6edff}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid transparent}
+
+input[type="text"], input[type="email"], input[type="search"], input[ngModel], textarea{
+	padding:.4rem .5rem;
+	border-radius:6px;
+	border:1px solid #e6e9ef;
+	outline:none;
+}
+input:focus{box-shadow:0 0 0 3px rgba(11,95,255,0.06);border-color:var(--primary)}
+
+.card{background:var(--card);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 18px rgba(18,18,18,0.03)}
+
+.badge{font-size:.8rem;padding:.18rem .4rem;border-radius:6px;background:#f3f4f6;color:var(--muted)}
+.badge.danger{background:var(--danger);color:white}
+
+.modal-backdrop{position:fixed;inset:0;background:#00000055}
+.modal{position:fixed;top:18%;left:50%;transform:translateX(-50%);background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 18px 42px rgba(15,15,15,0.15);}
+
+/* small responsive tweaks */
+@media (max-width:720px){
+	.header-left h1{font-size:1rem}
+	.app-header{padding:0 .5rem}
+}
+
+/* Styles for dev token and expiry components */
+app-dev-token input{width:10rem}
+app-dev-token button, app-token-expiry button{padding:.35rem .5rem}
+app-token-expiry span{font-size:.9rem}
+
+/* cart/product small improvements */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.product-card{display:flex;flex-direction:column;gap:.5rem}
+
+/* Product card hover animation */
+.product-card{transition:transform 180ms ease, box-shadow 180ms ease}
+.product-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 20px 40px rgba(15,15,15,0.08)}
+
+/* Buttons */
+.btn{transition:transform 120ms ease, box-shadow 120ms ease, opacity 120ms}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(11,95,255,0.12)}
+.btn:active{transform:translateY(0)}
+
+/* Token expiry badge pulse */
+.expired-badge{animation: pulse 1200ms infinite ease-in-out}
+@keyframes pulse{ 0%{ transform: scale(1)} 50%{ transform: scale(1.03)} 100%{ transform: scale(1)} }
+
+/* Toast progress uses existing keyframes in toasts.component, but ensure small visual nicety */
+.toasts .toast{ border-radius:6px }
+
+/* Spinner used in token expiry component */
+.spinner{
+	width:16px;height:16px;border-radius:50%;border:2px solid rgba(0,0,0,0.08);border-top-color:var(--primary);animation: spin 900ms linear infinite;box-sizing:border-box
+}
+@keyframes spin{ to{ transform: rotate(360deg) } }
+
+/* utility */
+.muted{color:var(--muted)}
+

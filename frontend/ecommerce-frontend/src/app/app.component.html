@@ -1,16 +1,17 @@
-<header style="padding: 1rem; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
-  <div style="display:flex;align-items:center;gap:.75rem;">
-    <h1 style="margin:0; font-size:1.25rem;">E-commerce Angular 17</h1>
-    <nav>
+<header class="app-header">
+  <div class="header-left">
+    <h1>E-commerce Angular 17</h1>
+    <nav class="nav">
       <a routerLink="/">Produtos</a>
-      <a routerLink="/cart" style="margin-left:.5rem">Carrinho</a>
+      <a routerLink="/cart">Carrinho</a>
     </nav>
   </div>
 
-  <div style="display:flex;align-items:center;gap:.5rem">
-    <div>Usuário: <strong>{{ userId() ?? 'não definido' }}</strong></div>
-    <button (click)="openModal()">Configurar userId</button>
-    <app-dev-token style="margin-left:.75rem"></app-dev-token>
+  <div class="header-right">
+    <div class="muted">Usuário: <strong>{{ userId() ?? 'não definido' }}</strong></div>
+    <button class="btn ghost" (click)="openModal()">Configurar userId</button>
+    <app-dev-token style="margin-left:.25rem"></app-dev-token>
+    <app-token-expiry style="margin-left:.25rem"></app-token-expiry>
   </div>
 </header>
 

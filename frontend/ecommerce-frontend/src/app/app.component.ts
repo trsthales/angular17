@@ -5,11 +5,12 @@ import { UserIdService } from './core/user-id.service';
 import { UserIdModalComponent } from './core/user-id-modal.component';
 import { ToastsComponent } from './core/toasts.component';
 import { DevTokenComponent } from './core/dev-token.component';
+import { TokenExpiryComponent } from './core/token-expiry.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, CommonModule, UserIdModalComponent, ToastsComponent, DevTokenComponent],
+  imports: [RouterOutlet, RouterLink, CommonModule, UserIdModalComponent, ToastsComponent, DevTokenComponent, TokenExpiryComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

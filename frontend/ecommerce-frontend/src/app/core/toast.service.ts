@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 
-export type ToastMessage = { id: number; text: string; type?: 'info' | 'success' | 'error' };
+export type ToastMessage = { id: number; text: string; type?: 'info' | 'success' | 'error'; ttl?: number };
 
 @Injectable({ providedIn: 'root' })
 export class ToastService {
@@ -10,7 +10,7 @@ export class ToastService {
 
   show(text: string, type: ToastMessage['type'] = 'info', ttl = 3000) {
     const id = this.idSeq++;
-    const msg: ToastMessage = { id, text, type };
+    const msg: ToastMessage = { id, text, type, ttl };
     this._messages.set([...this._messages(), msg]);
     setTimeout(() => this.remove(id), ttl);
   }
