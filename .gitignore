@@ -29,6 +29,11 @@ logs/
 *.jar          # Ignora pacotes JAR
 *.war          # Ignora pacotes WAR
 
+backend/**/target/
+frontend/**/dist/
+frontend/**/node_modules/
+frontend/**/build/
+
 # Dependências (devem ser gerenciadas pelo Maven/Gradle, não pelo Git)
 # Ignorar dependências na raiz do projeto (se aplicável, embora incomum para projetos Java padrão)
 lib/
