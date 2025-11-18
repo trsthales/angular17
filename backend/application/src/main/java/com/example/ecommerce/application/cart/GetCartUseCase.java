@@ -11,6 +11,13 @@ public class GetCartUseCase {
 
     public GetCartUseCase(LoadCartPort loadCart) { this.loadCart = loadCart; }
 
+    /**
+     * Executa o caso de uso de leitura do carrinho do usuário.
+     * Valida o `userId` e retorna um carrinho (vazio se não existir).
+     *
+     * @param userId id do usuário
+     * @return `Cart` (pode ser vazio)
+     */
     public Cart handle(UUID userId) {
         if (userId == null) throw new IllegalArgumentException("userId required");
         return loadCart.loadByUserId(userId).orElseGet(Cart::new);

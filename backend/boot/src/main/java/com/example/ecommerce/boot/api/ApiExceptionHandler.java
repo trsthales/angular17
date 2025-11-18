@@ -21,9 +21,11 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgument(IllegalArgumentException ex) {
+        // Tratamento específico para erro de produto não encontrado
         if ("product not found".equalsIgnoreCase(ex.getMessage())) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "not_found", "details", ex.getMessage()));
         }
+        // Exibe mensagem genérica para argumentos inválidos
         return ResponseEntity.badRequest().body(Map.of("error", "bad_request", "details", ex.getMessage()));
     }
 }

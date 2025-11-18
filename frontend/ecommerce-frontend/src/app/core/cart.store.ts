@@ -44,7 +44,15 @@ export class CartStore {
     if (cached) this.itemsSig.set(JSON.parse(cached));
   }
 
-  /** Carrega o carrinho do backend; userId é obrigatório pelo servidor. */
+  /**
+   * Carrega o carrinho do backend; `userId` é obrigatório pelo servidor.
+   *
+   * Fluxo:
+   * - monta header `X-User-Id`
+   * - set `loading`
+   * - atualiza `itemsSig` com a resposta (fonte de verdade)
+   * - em caso de erro, registra e notifica via `ToastService`
+   */
   loadCart(userId: string) {
     if (!userId) return;
     const headers = new HttpHeaders({ 'X-User-Id': userId });

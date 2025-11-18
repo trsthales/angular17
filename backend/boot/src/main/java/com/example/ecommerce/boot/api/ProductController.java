@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/** Controller fino (apenas orquestra casos de uso). */
+/**
+ * Controller REST para produtos. Componente fino que apenas orquestra o
+ * caso de uso `ListProductsUseCase` e realiza o mapeamento para `ProductView`.
+ *
+ * Não contém regra de negócio — essa responsabilidade está na camada de aplicação.
+ */
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -19,6 +24,11 @@ public class ProductController {
         this.listProducts = listProducts;
     }
 
+    /**
+     * Lista produtos disponíveis.
+     *
+     * @return lista de `ProductView` montada pelo caso de uso
+     */
     @GetMapping
     public List<ProductView> list() { return listProducts.handle(); }
 }

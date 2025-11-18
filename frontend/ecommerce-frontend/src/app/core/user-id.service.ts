@@ -26,3 +26,12 @@ export class UserIdService {
   openModal() { this._modalVisible.set(true); }
   closeModal() { this._modalVisible.set(false); }
 }
+
+/**
+ * Serviço leve para gerenciar o `userId` do usuário no frontend.
+ *
+ * Observações:
+ * - Persiste o `userId` em `localStorage` para simplicidade durante desenvolvimento.
+ * - Garante que o `userId` esteja disponível para outras partes da aplicação
+ *   (ex.: `CartStore`) que adicionam o header `X-User-Id` nas requisições.
+ */

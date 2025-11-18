@@ -19,15 +19,30 @@ public class JpaCartAdapter implements LoadCartPort, SaveCartPort {
 
     private final SpringDataCartRepository repo;
 
+    /**
+     * Construtor com injeção do repositório Spring Data.
+     * @param repo repositório JPA gerenciado pelo Spring Data
+     */
     public JpaCartAdapter(SpringDataCartRepository repo) {
         this.repo = repo;
     }
 
+    /**
+     * Carrega o carrinho do usuário convertendo a entidade JPA para o modelo de domínio.
+     * @param userId id do usuário
+     * @return Optional com o `Cart` ou vazio
+     */
     @Override
     public Optional<Cart> loadByUserId(UUID userId) {
         return repo.findByUserId(userId).map(this::toDomain);
     }
 
+    /**
+     * Persiste o carrinho do usuário. A implementação reusa a entidade existente
+     * (se houver) e recria a lista de itens (orphanRemoval cuida dos antigos).
+     * @param userId id do usuário
+     * @param cart carrinho de domínio a ser salvo
+     */
     @Override
     public void save(UUID userId, Cart cart) {
         CartEntity entity = repo.findByUserId(userId).orElseGet(CartEntity::new);
@@ -48,6 +63,11 @@ public class JpaCartAdapter implements LoadCartPort, SaveCartPort {
         repo.save(entity);
     }
 
+    /**
+     * Converte uma `CartEntity` (JPA) para `Cart` (domínio).
+     * @param entity entidade JPA com itens
+     * @return instância de domínio `Cart`
+     */
     private Cart toDomain(CartEntity entity) {
         Cart cart = new Cart();
         entity.getItems().forEach(i -> {

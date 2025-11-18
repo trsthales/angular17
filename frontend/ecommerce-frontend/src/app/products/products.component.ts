@@ -32,3 +32,12 @@ export class ProductsComponent implements OnInit {
     this.cart.add({ productId: p.id, quantity: 1 }, localStorage.getItem('userId') || '00000000-0000-0000-0000-000000000001');
   }
 }
+
+/**
+ * Componente de listagem de produtos.
+ *
+ * Observações de implementação:
+ * - Usa `ProductsService` para buscar produtos e armazena o resultado em `products`.
+ * - Ao inicializar (`ngOnInit`) também carrega o carrinho do usuário via `CartStore`.
+ * - O `addToCart` delega toda a lógica para a store; o componente apenas orquestra a ação.
+ */
