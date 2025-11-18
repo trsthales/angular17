@@ -1,0 +1,46 @@
+<section class="products">
+  <h1>Catálogo</h1>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (!error()) {
+    @if (products().length === 0) {
+      <p>Nenhum produto disponível.</p>
+    } @else {
+      <ul class="grid">
+        @for (p of products(); track p.id) {
+          <li class="card">
+            <h3>{{ p.name }}</h3>
+            <p>R$ {{ p.price | number: '1.2-2' }}</p>
+            <button (click)="addToCart(p)">Adicionar ao carrinho</button>
+          </li>
+        }
+      </ul>
+
+      <aside class="cart">
+        <h2>Carrinho</h2>
+        @if (cart.items().length === 0) {
+          <p>Vazio</p>
+        } @else {
+          <ul>
+            @for (i of cart.items(); track i.productId) {
+              <li>{{ i.productName }} x {{ i.quantity }} — R$ {{ (i.unitPrice * i.quantity) | number: '1.2-2' }}</li>
+            }
+          </ul>
+          <p><strong>Total: R$ {{ cart.total() | number: '1.2-2' }}</strong></p>
+        }
+      </aside>
+    }
+  }
+</section>
+
+<section class="defer-demo">
+  <h2>Checkout (carregado sob demanda)</h2>
+  @defer (on viewport) {
+    <app-checkout></app-checkout>
+  } @placeholder {
+    <p>Role até aqui para carregar o checkout...</p>
+  }
+</section>

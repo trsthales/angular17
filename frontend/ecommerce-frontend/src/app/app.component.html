@@ -1,0 +1,21 @@
+<header style="padding: 1rem; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+  <div style="display:flex;align-items:center;gap:.75rem;">
+    <h1 style="margin:0; font-size:1.25rem;">E-commerce Angular 17</h1>
+    <nav>
+      <a routerLink="/">Produtos</a>
+      <a routerLink="/cart" style="margin-left:.5rem">Carrinho</a>
+    </nav>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:.5rem">
+    <div>Usuário: <strong>{{ userId() ?? 'não definido' }}</strong></div>
+    <button (click)="openModal()">Configurar userId</button>
+  </div>
+</header>
+
+<main style="padding: 1rem;">
+  <router-outlet></router-outlet>
+</main>
+
+<app-user-id-modal></app-user-id-modal>
+<app-toasts></app-toasts>

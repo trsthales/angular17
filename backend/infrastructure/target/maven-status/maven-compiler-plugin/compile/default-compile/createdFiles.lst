@@ -1,0 +1,7 @@
+com\example\ecommerce\infrastructure\cart\CartItemEntity.class
+com\example\ecommerce\infrastructure\adapters\JpaCartAdapter.class
+com\example\ecommerce\infrastructure\product\ProductEntity.class
+com\example\ecommerce\infrastructure\cart\SpringDataCartRepository.class
+com\example\ecommerce\infrastructure\product\SpringDataProductRepository.class
+com\example\ecommerce\infrastructure\adapters\JpaProductAdapter.class
+com\example\ecommerce\infrastructure\cart\CartEntity.class

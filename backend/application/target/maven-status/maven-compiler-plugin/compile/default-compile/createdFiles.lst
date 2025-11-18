@@ -1,0 +1,10 @@
+com\example\ecommerce\application\ports\cart\SaveCartPort.class
+com\example\ecommerce\application\ports\cart\LoadCartPort.class
+com\example\ecommerce\application\ports\product\LoadProductByIdPort.class
+com\example\ecommerce\application\product\ProductView.class
+com\example\ecommerce\application\cart\AddToCartUseCase.class
+com\example\ecommerce\application\cart\CartView.class
+com\example\ecommerce\application\cart\GetCartUseCase.class
+com\example\ecommerce\application\ports\LoadProductsPort.class
+com\example\ecommerce\application\cart\CartItemView.class
+com\example\ecommerce\application\product\ListProductsUseCase.class

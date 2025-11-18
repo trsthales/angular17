@@ -1,0 +1,4 @@
+com\example\ecommerce\domain\cart\CartItem.class
+com\example\ecommerce\domain\cart\Cart.class
+com\example\ecommerce\domain\product\Product.class
+com\example\ecommerce\domain\value\Money.class

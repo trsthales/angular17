@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.ecommerce.domain.cart.CartTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 s -- in com.example.ecommerce.domain.cart.CartTest

@@ -1,0 +1,2 @@
+com\example\ecommerce\infrastructure\product\ProductRepositoryIT.class
+com\example\ecommerce\infrastructure\cart\CartAdapterIT.class
