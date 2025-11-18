@@ -1,11 +1,13 @@
-C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CartView.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\product\ListProductsUseCase.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CheckoutUseCase.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\AddToCartUseCase.java
-C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\UpdateCartItemUseCase.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\GetCartUseCase.java
-C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\LoadProductsPort.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\cart\SaveCartPort.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\product\ProductView.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CartItemView.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CartView.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CheckoutView.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\UpdateCartItemUseCase.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\LoadProductsPort.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\cart\LoadCartPort.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\product\LoadProductByIdPort.java
-C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CartItemView.java

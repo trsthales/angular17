@@ -12,3 +12,10 @@ spring:
         show_sql: false
 server:
   port: 8080
+
+# JWT configuration for local testing (replace in production)
+security:
+  jwt:
+    # symmetric secret used to sign/verify HS256 tokens for local testing
+    # MUST be at least 32 bytes for HS256 (Nimbus requirement). Change to a secure value in production.
+    secret: "secret-change-me-for-production-0123456789abcd"

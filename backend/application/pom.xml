@@ -14,6 +14,12 @@
             <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- Anotações Swagger/OpenAPI usadas apenas para documentação (compile scope) -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.2.9</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

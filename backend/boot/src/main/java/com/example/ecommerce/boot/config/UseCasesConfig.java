@@ -45,4 +45,10 @@ public class UseCasesConfig {
                                                                                               LoadProductByIdPort loadProductByIdPort) {
         return new com.example.ecommerce.application.cart.UpdateCartItemUseCase(loadCartPort, saveCartPort, loadProductByIdPort);
     }
+
+    @Bean
+    public com.example.ecommerce.application.cart.CheckoutUseCase checkoutUseCase(LoadCartPort loadCartPort,
+                                                                                  SaveCartPort saveCartPort) {
+        return new com.example.ecommerce.application.cart.CheckoutUseCase(loadCartPort, saveCartPort);
+    }
 }

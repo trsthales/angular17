@@ -35,6 +35,10 @@ import { UserIdService } from '../core/user-id.service';
       </ul>
 
       <div class="total">Total: R$ {{ total().toFixed(2) }}</div>
+
+      <div style="text-align:right; margin-top:1rem">
+        <button (click)="checkout()" style="padding:0.5rem 1rem; font-weight:600">Finalizar Compra</button>
+      </div>
     </section>
   `,
   styles: [
@@ -85,5 +89,10 @@ export class CartComponent {
   remove(item: { productId: string }) {
     const userId = this.getUserId();
     this.store.remove(item.productId, userId);
+  }
+
+  checkout() {
+    const userId = this.getUserId();
+    this.store.checkout(userId);
   }
 }

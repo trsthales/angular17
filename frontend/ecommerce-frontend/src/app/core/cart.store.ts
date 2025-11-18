@@ -171,4 +171,29 @@ export class CartStore {
       }
     });
   }
+
+  /**
+   * Faz checkout do carrinho: chama o backend que limpa o carrinho e retorna resumo do pedido.
+   */
+  checkout(userId: string) {
+    if (!userId) throw new Error('userId é obrigatório');
+    const headers = new HttpHeaders({ 'X-User-Id': userId });
+    this.loading.set(true);
+    this.http.post<{ orderId: string; total: number }>('/api/cart/checkout', {}, { headers }).subscribe({
+      next: (res) => {
+        // atualiza store para carrinho vazio
+        this.itemsSig.set([]);
+        this.lastError.set(null);
+        this.toast.showSuccess('Checkout realizado com sucesso — pedido: ' + res.orderId);
+        this.loading.set(false);
+      },
+      error: (err) => {
+        console.error('Falha no checkout', err);
+        const msg = err?.message ?? 'Erro no checkout';
+        this.lastError.set(msg);
+        this.toast.showError('Falha no checkout');
+        this.loading.set(false);
+      }
+    });
+  }
 }
