@@ -55,6 +55,9 @@ npm start
 - `GET /api/cart` - retorna o carrinho do usuário (espera header `X-User-Id`)
 - `POST /api/cart/items` - adiciona item ao carrinho (header `X-User-Id`)
 
+- `PUT /api/cart/items` - atualiza a quantidade de um item (body: `{productId, quantity}`)
+- `DELETE /api/cart/items/{productId}` - remove um item do carrinho
+
 ## Notas sobre o desenvolvimento
 - O backend é um projeto Maven multi-módulo (modules: `domain`, `application`, `infrastructure`, `boot`).
 - Use `mvn -am -pl boot ...` para construir `boot` junto com dependências locais.

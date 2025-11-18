@@ -1,6 +1,7 @@
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\CartView.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\product\ListProductsUseCase.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\AddToCartUseCase.java
+C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\UpdateCartItemUseCase.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\cart\GetCartUseCase.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\LoadProductsPort.java
 C:\Users\User\Downloads\Fazendo\angular17\backend\application\src\main\java\com\example\ecommerce\application\ports\cart\SaveCartPort.java

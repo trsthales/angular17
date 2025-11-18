@@ -38,4 +38,11 @@ public class UseCasesConfig {
         // Caso de uso de leitura do carrinho
         return new GetCartUseCase(loadCartPort);
     }
+
+    @Bean
+    public com.example.ecommerce.application.cart.UpdateCartItemUseCase updateCartItemUseCase(LoadCartPort loadCartPort,
+                                                                                              SaveCartPort saveCartPort,
+                                                                                              LoadProductByIdPort loadProductByIdPort) {
+        return new com.example.ecommerce.application.cart.UpdateCartItemUseCase(loadCartPort, saveCartPort, loadProductByIdPort);
+    }
 }

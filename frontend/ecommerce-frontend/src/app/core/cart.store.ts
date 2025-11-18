@@ -109,4 +109,66 @@ export class CartStore {
   }
 
   clear() { this.itemsSig.set([]); }
+
+  /**
+   * Atualiza a quantidade de um item no backend.
+   * - se `quantity` for 0, o item é removido
+   */
+  update(productId: string, quantity: number, userId: string) {
+    if (!userId) throw new Error('userId é obrigatório');
+    const headers = new HttpHeaders({ 'X-User-Id': userId });
+    const body = { productId, quantity };
+    this.loading.set(true);
+    this.http.put<ApiCartView>('/api/cart/items', body, { headers }).subscribe({
+      next: (res) => {
+        const items: CartItem[] = (res.items || []).map(i => ({
+          productId: String(i.productId),
+          productName: i.productName,
+          unitPrice: Number(i.unitPrice),
+          quantity: Number(i.quantity),
+        }));
+        this.itemsSig.set(items);
+        this.lastError.set(null);
+        this.toast.showSuccess('Carrinho atualizado');
+        this.loading.set(false);
+      },
+      error: (err) => {
+        console.error('Falha ao atualizar item', err);
+        const msg = err?.message ?? 'Erro ao atualizar item';
+        this.lastError.set(msg);
+        this.toast.showError('Falha ao atualizar item');
+        this.loading.set(false);
+      }
+    });
+  }
+
+  /**
+   * Remove um item do carrinho chamando o endpoint DELETE.
+   */
+  remove(productId: string, userId: string) {
+    if (!userId) throw new Error('userId é obrigatório');
+    const headers = new HttpHeaders({ 'X-User-Id': userId });
+    this.loading.set(true);
+    this.http.delete<ApiCartView>(`/api/cart/items/${productId}`, { headers }).subscribe({
+      next: (res) => {
+        const items: CartItem[] = (res.items || []).map(i => ({
+          productId: String(i.productId),
+          productName: i.productName,
+          unitPrice: Number(i.unitPrice),
+          quantity: Number(i.quantity),
+        }));
+        this.itemsSig.set(items);
+        this.lastError.set(null);
+        this.toast.showSuccess('Item removido do carrinho');
+        this.loading.set(false);
+      },
+      error: (err) => {
+        console.error('Falha ao remover item', err);
+        const msg = err?.message ?? 'Erro ao remover item';
+        this.lastError.set(msg);
+        this.toast.showError('Falha ao remover item');
+        this.loading.set(false);
+      }
+    });
+  }
 }
